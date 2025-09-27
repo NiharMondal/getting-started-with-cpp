@@ -1,6 +1,6 @@
 #include <iostream>
+#include <vector>
 using namespace std;
-
 
 // find minimum number
 void minNumber(int arr[], int len)
@@ -40,7 +40,52 @@ void maxNumber(int arr[], int len)
     cout << "Max number is: " << maxNumber << endl;
 }
 
+// number is prime or not
+void isPrime(int number)
+{
+    bool result = true;
+    for (int i = 2; i * i <= number; i++)
+    {
+        if (number % i == 0)
+        {
+            result = false;
+            break;
+        }
+    }
+
+    if (result == true)
+    {
+        cout << number << " is prime";
+    }
+    else
+    {
+        cout << number << " is not prime";
+    }
+
+    cout << endl;
+}
+
+// find factors of non prime number
+
+void findFactors(int count)
+{
+    vector<int> resultArr = {};
+    for (int i = 2; i <= count - 1; i++)
+    {
+        if (count % i == 0)
+        {
+            resultArr.push_back(i);
+        }
+    }
+
+    for (int result : resultArr)
+    {
+        cout << result << " ";
+    }
+}
+
 // main function
+
 int main()
 {
     int numArr[] = {48, 24, 93, 39, 37, 27, 29, 63, 73, 37};
@@ -51,5 +96,9 @@ int main()
 
     // highest number
     maxNumber(numArr, len);
+
+    isPrime(13);
+
+    findFactors(24);
     return 0;
 }
